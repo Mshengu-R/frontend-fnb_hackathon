@@ -1,56 +1,45 @@
-# Welcome to your Expo app 👋
+# Lets Learn
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Lets Learn is a React Native student-support app for South African learners. It brings together practical guidance for NSFAS and bursary applications, monthly cost planning, student wellbeing, study habits, and accessible low-data learning.
 
-## Get started
+The app uses the local Express backend for JWT sign-in, account creation, profile updates and account deletion. The chatbot screen is a frontend placeholder and is not connected to an AI provider yet. Checklists, mood check-ins, and budget inputs remain local to the running app.
 
-1. Install dependencies
+## Run on Windows
 
-   ```bash
-   npm install
-   ```
+Open PowerShell or the VS Code terminal in this folder. The `.cmd` suffix avoids PowerShell execution-policy blocks on Windows:
 
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **src/app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```powershell
+npm.cmd install
+npm.cmd run web
 ```
 
-This command will move the starter code to the **example** directory and create a blank **src/app** directory where you can start developing.
+By default, API requests use `http://localhost:3000`. Start the backend from `..\backend` with its configured PostgreSQL database and development environment. To use a different backend, set `EXPO_PUBLIC_API_URL` in a frontend `.env` file, for example `EXPO_PUBLIC_API_URL=http://localhost:3000`.
 
-### Other setup steps
+For Android emulators, use `EXPO_PUBLIC_API_URL=http://10.0.2.2:<port>` because emulator `localhost` points to the emulator itself. For a physical device, use the computer's LAN IP and ensure both devices share a network. Do not use a public or production endpoint over plain HTTP.
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+To run on a device, start the development server with `npx.cmd expo start`, then scan the QR code with Expo Go. Android Studio and Xcode simulator commands are also available as `npm.cmd run android` and `npm.cmd run ios`.
 
-## Learn more
+Native builds use Expo SecureStore for the JWT session. On web, the session uses browser local storage; deploy web over HTTPS and avoid shared devices.
 
-To learn more about developing your project with Expo, look at the following resources:
+## App structure
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- `src/app/(tabs)/index.tsx` — home dashboard and student journey checklist
+- `src/app/(tabs)/explore.tsx` — funding, bursary, budget, wellbeing, study, and accessible-learning guidance
+- `src/app/(tabs)/profile.tsx` — profile read, update, delete, and sign-out
+- `src/app/login.tsx` and `src/app/signup.tsx` — JWT authentication screens
+- `src/app/privacy.tsx` — draft privacy and data policy
+- `src/app/chat.tsx` — chatbot-ready screen (provider integration pending)
+- `src/auth/` and `src/services/api.ts` — authentication state and backend client
+- `src/app/_layout.tsx` — authentication-aware app navigation
+- `src/components/app-tabs.web.tsx` and `src/components/app-tabs.tsx` — web and native navigation
 
-## Join the community
+## Verify the frontend
 
-Join our community of developers creating universal apps.
+```powershell
+npx.cmd tsc --noEmit
+npx.cmd expo export --platform web
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Funding information is general guidance, not an eligibility decision. Confirm current requirements and deadlines with NSFAS, the relevant funder, or your institution.
+
+The privacy screen is clearly marked as a draft; add your organisation, privacy contact and retention details and have it reviewed before collecting real student data.
