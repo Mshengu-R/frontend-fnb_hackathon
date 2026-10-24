@@ -10,8 +10,8 @@ const SESSION_KEY = 'lets-learn-session';
 type AuthContextValue = {
   state: AuthState;
   signIn: (email: string, password: string) => Promise<void>;
-  signUp: (details: { name: string; email: string; gender: string; password: string }) => Promise<void>;
-  updateProfile: (details: { name: string; email: string; gender: string; password?: string }) => Promise<UserProfile>;
+  signUp: (details: { name: string; email: string; password: string }) => Promise<void>;
+  updateProfile: (details: { name: string; email: string; password?: string }) => Promise<UserProfile>;
   deleteAccount: () => Promise<void>;
   signOut: () => Promise<void>;
 };
@@ -71,12 +71,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     dispatch({ type: 'SIGN_IN', session });
   }, []);
 
-  const signUp = useCallback(async (details: { name: string; email: string; gender: string; password: string }) => {
+  const signUp = useCallback(async (details: { name: string; email: string; password: string }) => {
     await api.signUp(details);
   }, []);
 
   const updateProfile = useCallback(async (
-    details: { name: string; email: string; gender: string; password?: string },
+    details: { name: string; email: string; password?: string },
   ) => {
     if (state.status !== 'signedIn') throw new Error('Sign in to update your profile.');
     const user = await api.updateUser(state.session.user.id, state.session.token, details);

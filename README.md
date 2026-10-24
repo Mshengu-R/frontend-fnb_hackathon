@@ -2,7 +2,7 @@
 
 Lets Learn is a React Native student-support app for South African learners. It brings together practical guidance for NSFAS and bursary applications, monthly cost planning, student wellbeing, study habits, and accessible low-data learning.
 
-The app uses the local Express backend for JWT sign-in, account creation, profile updates and account deletion. The chatbot screen is a frontend placeholder and is not connected to an AI provider yet. Checklists, mood check-ins, and budget inputs remain local to the running app.
+The app uses the Express backend for JWT sign-in, account creation, profile updates, account deletion and AI chat. Chat messages are sent to `POST /api/v1/ai/chat` with the signed-in user's bearer token; the backend determines the user's customer role and configured AI model. Checklists, mood check-ins, and budget inputs remain local to the running app.
 
 ## Run on Windows
 
@@ -13,7 +13,7 @@ npm.cmd install
 npm.cmd run web
 ```
 
-By default, API requests use `http://localhost:3000`. Start the backend from `..\backend` with its configured PostgreSQL database and development environment. To use a different backend, set `EXPO_PUBLIC_API_URL` in a frontend `.env` file, for example `EXPO_PUBLIC_API_URL=http://localhost:3000`.
+By default, API requests use `http://localhost:5500`. Start the backend from `..\backend` with its configured PostgreSQL database and development environment. To use a different backend, set `EXPO_PUBLIC_API_URL` in a frontend `.env` file, for example `EXPO_PUBLIC_API_URL=http://localhost:5500`.
 
 For Android emulators, use `EXPO_PUBLIC_API_URL=http://10.0.2.2:<port>` because emulator `localhost` points to the emulator itself. For a physical device, use the computer's LAN IP and ensure both devices share a network. Do not use a public or production endpoint over plain HTTP.
 

@@ -19,14 +19,14 @@ export default function SignupScreen() {
   const { signUp } = useAuth();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [gender, setGender] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
 
   const submit = async () => {
     setError('');
-    if (!name.trim() || !email.trim() || !gender.trim() || !password) {
+    if (!name.trim() || !email.trim()  || !password) {
       setError('Complete all fields to create your account.');
       return;
     }
@@ -36,7 +36,7 @@ export default function SignupScreen() {
     }
     setBusy(true);
     try {
-      await signUp({ name: name.trim(), email: email.trim(), gender: gender.trim(), password });
+      await signUp({ name: name.trim(), email: email.trim(), password });
       router.replace({ pathname: '/login', params: { registered: 'true' } });
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : 'Could not create your account.');
@@ -58,10 +58,18 @@ export default function SignupScreen() {
             <TextInput accessibilityLabel="Full name" autoCapitalize="words" onChangeText={setName} placeholder="Your name" placeholderTextColor="#929D95" style={styles.input} value={name} />
             <Text style={styles.label}>Email address</Text>
             <TextInput accessibilityLabel="Email address" autoCapitalize="none" autoComplete="email" keyboardType="email-address" onChangeText={setEmail} placeholder="you@example.com" placeholderTextColor="#929D95" style={styles.input} value={email} />
-            {/* <Text style={styles.label}>Gender</Text> */}
-            {/* <TextInput accessibilityLabel="Gender" onChangeText={setGender} placeholder="Enter how you describe your gender" placeholderTextColor="#929D95" style={styles.input} value={gender} /> */}
             <Text style={styles.label}>Password</Text>
-            <TextInput accessibilityLabel="Password" autoCapitalize="none" autoComplete="new-password" onChangeText={setPassword} placeholder="At least 6 characters" placeholderTextColor="#929D95" secureTextEntry style={styles.input} value={password} />
+            <View style={styles.passwordInput}>
+              <TextInput accessibilityLabel="Password" autoCapitalize="none" autoComplete="new-password" onChangeText={setPassword} placeholder="At least 6 characters" placeholderTextColor="#929D95" secureTextEntry={!passwordVisible} style={styles.passwordTextInput} value={password} />
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel={passwordVisible ? 'Hide password' : 'Show password'}
+                onPress={() => setPasswordVisible((visible) => !visible)}
+                hitSlop={8}
+              >
+                <Text style={styles.passwordToggle}>{passwordVisible ? 'Hide' : 'Show'}</Text>
+              </Pressable>
+            </View>
             {/* <Text style={styles.note}>Your password is protected by the Lets Learn backend and is never stored in plain text.</Text> */}
             {error ? <Text accessibilityRole="alert" style={styles.error}>{error}</Text> : null}
             <Pressable accessibilityRole="button" disabled={busy} onPress={submit} style={({ pressed }) => [styles.button, (pressed || busy) && styles.pressed]}>
@@ -86,6 +94,9 @@ const styles = StyleSheet.create({
   form: { backgroundColor: '#FFFFFF', borderColor: '#E7EBE4', borderWidth: 1, borderRadius: 20, padding: 18, marginTop: 20 },
   label: { color: '#173B35', fontSize: 15, marginTop: 10, marginBottom: 6 },
   input: { color: '#173B35', backgroundColor: '#FAFBF8', borderColor: '#E7EBE4', borderWidth: 1, borderRadius: 11, minHeight: 46, paddingHorizontal: 12, fontSize: 14 },
+  passwordInput: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#FAFBF8', borderColor: '#E7EBE4', borderWidth: 1, borderRadius: 11, minHeight: 46, paddingHorizontal: 12 },
+  passwordTextInput: { flex: 1, color: '#173B35', fontSize: 14, paddingVertical: 10 },
+  passwordToggle: { color: '#1F6758', fontSize: 13, fontWeight: '600', paddingLeft: 12, paddingVertical: 8 },
   note: { color: '#75817A', fontSize: 11, lineHeight: 16, marginTop: 10 },
   button: { backgroundColor: '#1F6758', borderRadius: 12, minHeight: 49, alignItems: 'center', justifyContent: 'center', marginTop: 17 },
   buttonText: { color: '#FFFFFF', fontSize: 14, fontWeight: '600' },

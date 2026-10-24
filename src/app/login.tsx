@@ -20,6 +20,7 @@ export default function LoginScreen() {
   const params = useLocalSearchParams<{ registered?: string }>();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
 
@@ -65,18 +66,28 @@ export default function LoginScreen() {
               value={email}
             />
             <Text style={styles.label}>Password</Text>
-            <TextInput
-              accessibilityLabel="Password"
-              autoCapitalize="none"
-              autoComplete="password"
-              onChangeText={setPassword}
-              onSubmitEditing={submit}
-              placeholder="Enter your password"
-              placeholderTextColor="#929D95"
-              secureTextEntry
-              style={styles.input}
-              value={password}
-            />
+            <View style={styles.passwordInput}>
+              <TextInput
+                accessibilityLabel="Password"
+                autoCapitalize="none"
+                autoComplete="password"
+                onChangeText={setPassword}
+                onSubmitEditing={submit}
+                placeholder="Enter your password"
+                placeholderTextColor="#929D95"
+                secureTextEntry={!passwordVisible}
+                style={styles.passwordTextInput}
+                value={password}
+              />
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel={passwordVisible ? 'Hide password' : 'Show password'}
+                onPress={() => setPasswordVisible((visible) => !visible)}
+                hitSlop={8}
+              >
+                <Text style={styles.passwordToggle}>{passwordVisible ? 'Hide' : 'Show'}</Text>
+              </Pressable>
+            </View>
             {error ? <Text accessibilityRole="alert" style={styles.error}>{error}</Text> : null}
             <Pressable accessibilityRole="button" disabled={busy} onPress={submit} style={({ pressed }) => [styles.button, (pressed || busy) && styles.pressed]}>
               {busy ? <ActivityIndicator color="#FFFFFF" /> : <Text style={styles.buttonText}>Sign in</Text>}
@@ -103,6 +114,9 @@ const styles = StyleSheet.create({
   form: { backgroundColor: '#FFFFFF', borderColor: '#E7EBE4', borderWidth: 1, borderRadius: 20, padding: 18, marginTop: 25 },
   label: { color: '#173B35', fontSize: 15, marginTop: 11, marginBottom: 7 },
   input: { color: '#173B35', backgroundColor: '#FAFBF8', borderColor: '#E7EBE4', borderWidth: 1, borderRadius: 11, minHeight: 47, paddingHorizontal: 12, fontSize: 14 },
+  passwordInput: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#FAFBF8', borderColor: '#E7EBE4', borderWidth: 1, borderRadius: 11, minHeight: 47, paddingHorizontal: 12 },
+  passwordTextInput: { flex: 1, color: '#173B35', fontSize: 14, paddingVertical: 10 },
+  passwordToggle: { color: '#1F6758', fontSize: 13, fontWeight: '600', paddingLeft: 12, paddingVertical: 8 },
   button: { backgroundColor: '#1F6758', borderRadius: 12, minHeight: 49, alignItems: 'center', justifyContent: 'center', marginTop: 20 },
   buttonText: { color: '#FFFFFF', fontSize: 14, fontWeight: '600' },
   pressed: { opacity: 0.75 },

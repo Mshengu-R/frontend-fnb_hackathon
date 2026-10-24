@@ -2,7 +2,7 @@ import { Platform } from 'react-native';
 
 import type { UserProfile } from '@/auth/types';
 
-const API_BASE_URL = (process.env.EXPO_PUBLIC_API_URL || 'http://localhost:3000').replace(/\/+$/, '');
+const API_BASE_URL = (process.env.EXPO_PUBLIC_API_URL || 'http://localhost:5500').replace(/\/+$/, '');
 
 type ApiResponse<T> = {
   success?: boolean;
@@ -28,7 +28,7 @@ async function request<T>(path: string, options: RequestInit = {}, token?: strin
       Platform.OS === 'android'
         ? ' On an Android emulator, set EXPO_PUBLIC_API_URL to http://10.0.2.2:<port>.'
         : '';
-    throw new Error(`Could not reach the Lets Learn backend at ${API_BASE_URL}.${hostHint}`);
+    throw new Error(`Could not connect to the server. Our team is currently fixing it. We are sorry for the inconvenience. Please try again later.`);
   }
 
   const payload = (await response.json().catch(() => ({}))) as ApiResponse<T>;
@@ -37,9 +37,55 @@ async function request<T>(path: string, options: RequestInit = {}, token?: strin
   }
   if (payload.data === undefined) {
     if (allowMissingData && payload.success) return undefined as T;
-    throw new Error('The backend returned an unexpected response.');
+    throw new Error('An unknown error has occured.');
   }
   return payload.data;
+}
+
+async function requestChatReply(message: string, token: string): Promise<string> {
+  let response: Response;
+  try {
+    response = await fetch(`${API_BASE_URL}/api/v1/ai/chat`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ message }),
+    });
+  } catch {
+    throw new Error('Could not connect to the chatbot service. Please try again.');
+  }
+
+  let payload: unknown;
+  try {
+    payload = await response.json();
+  } catch {
+    throw new Error('The chatbot service returned an invalid response.');
+  }
+
+  if (!response.ok) {
+    if (typeof payload === 'object' && payload !== null) {
+      const error = 'error' in payload && typeof payload.error === 'string' ? payload.error : null;
+      const messageText = 'message' in payload && typeof payload.message === 'string' ? payload.message : null;
+      throw new Error(error || messageText || `Chat request failed (${response.status}).`);
+    }
+    throw new Error(`Chat request failed (${response.status}).`);
+  }
+
+  if (
+    typeof payload !== 'object'
+    || payload === null
+    || !('role' in payload)
+    || payload.role !== 'assistant'
+    || !('content' in payload)
+    || typeof payload.content !== 'string'
+  ) {
+    throw new Error('The chatbot service returned an unexpected response.');
+  }
+
+  return payload.content;
 }
 
 export const api = {
@@ -50,7 +96,7 @@ export const api = {
     });
   },
 
-  async signUp(details: { name: string; email: string; gender: string; password: string }) {
+  async signUp(details: { name: string; email: string; password: string }) {
     return request<{ user: UserProfile }>('/api/v1/auth/sign-up', {
       method: 'POST',
       body: JSON.stringify(details),
@@ -64,7 +110,7 @@ export const api = {
   async updateUser(
     id: number | string,
     token: string,
-    details: { name: string; email: string; gender: string; password?: string },
+    details: { name: string; email: string; password?: string },
   ) {
     return request<UserProfile>(`/api/v1/users/${encodeURIComponent(id)}/update`, {
       method: 'PUT',
@@ -80,5 +126,9 @@ export const api = {
 
   async signOut(token: string) {
     return request<void>('/api/v1/auth/sign-out', { method: 'POST' }, token, true);
+  },
+
+  async chat(message: string, token: string) {
+    return requestChatReply(message, token);
   },
 };

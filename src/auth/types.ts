@@ -2,7 +2,6 @@ export type UserProfile = {
   id: number | string;
   name: string;
   email: string;
-  gender: string;
 };
 
 export type AuthSession = {

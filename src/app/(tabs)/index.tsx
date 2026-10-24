@@ -53,7 +53,7 @@ export default function HomeScreen() {
                 <Text style={styles.brandMarkText}>e</Text>
               </View>
               <View>
-                <Text style={styles.brandName}>Lets Learn</Text>
+                <Text style={styles.brandName}>Let's Learn</Text>
                 <Text style={styles.brandCaption}>AN AID FOR YOUR JOURNEY</Text>
               </View>
             </View>
@@ -183,7 +183,7 @@ export default function HomeScreen() {
             <Text style={styles.chatIcon}>✳</Text>
             <View style={styles.chatCopy}>
               <Text style={styles.chatTitle}>Study pathway chat</Text>
-              <Text style={styles.chatDescription}>A guided chat space is being prepared for you.</Text>
+              <Text style={styles.chatDescription}>Ask the AI assistant about your study journey.</Text>
             </View>
             <Text style={styles.rowArrow}>›</Text>
           </Pressable>

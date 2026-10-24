@@ -53,7 +53,7 @@ const guides: Guide[] = [
       'Check the current eligibility rules on the official NSFAS site.',
       'Prepare your South African ID and the supporting documents listed for your situation.',
       'Apply through the official portal, then keep your reference number safe.',
-      'Check your application status regularly and respond to any requests before their due date.',
+      'Check your application status, email and sms\' regularly and respond to any requests before their due date.',
     ],
     link: 'https://www.nsfas.org.za/',
     linkLabel: 'Visit the official NSFAS website',
@@ -83,10 +83,13 @@ const guides: Guide[] = [
     category: 'Money',
     color: '#F9E6D9',
     steps: [
-      'Start with money you can count on this month, such as allowance or confirmed funding.',
+      // 'Peer preausre exists and we understand that but, you matter more than how people think of you',
+      'Know exactly what you need and want, not what you friends need and want.',
+      'Not to focus more on your background but understanding that you come from a different background can help you understand how much you need to take care of your finances.',
       'List essentials first: food, transport, data, rent and study materials.',
       'Subtract planned costs from your available amount before making extra purchases.',
-      'If there is a shortfall, contact your campus financial-aid office early.',
+      'In this economy creating a well structured budget is essential and not optional.',
+      'You need to save yourself from yourself.',
     ],
   },
   {
@@ -97,10 +100,18 @@ const guides: Guide[] = [
     category: 'Wellbeing',
     color: '#EEE9F8',
     steps: [
-      'Take a slow breath in, then let it out a little longer.',
+      'School sometimes can be overwhelming, managing your studies and mental health remains your responsibility.',
+      'A gym might sound difficult but in this world we are always fighting. Therefore, fight for your health by exercising.',
+      'You love unhealthy food? Everyone does but did you know a well balance diet can reduce stress?',
+      'Avoid being with people who always speak negative things about your life.',
+      'It is not that simple to find people who are do not have evil deeds however that does not mean they do not exist.',
+      'Take a slow breath in, then let it out a little longer. Even taking a walk and let the sun shine on you helps.',
+      'Engage in fun activities.',
+      'Understands what is in and out of your control.',
       'Name one thing that feels manageable in the next ten minutes.',
       'Reach out to someone you trust or your campus counselling service if you need support.',
       'If you feel unsafe or in immediate danger, contact local emergency services now.',
+      
     ],
   },
   {
@@ -111,10 +122,13 @@ const guides: Guide[] = [
     category: 'Study',
     color: '#E5EFF8',
     steps: [
+      'There are tools which you may use in setting up you next action and planning what you will study next.',
       'Write down the next deadline and the smallest action you can do today.',
       'Try a focused 25-minute study session, then take a short screen-free break.',
       'Ask a tutor, lecturer or classmate for help as soon as you get stuck.',
-      'Protect sleep and meal breaks; steady progress beats an all-nighter.',
+      'Use study tools .',
+      'Find study mates who understand what you do not understand.(Don\'t be a parasite let there be something that you know)',
+      'Do not be afraid to approach your lectures for help. That is what they are there for.',
     ],
   },
   {
@@ -372,7 +386,7 @@ export default function ExploreScreen() {
                 Funding rules and deadlines can change. Always confirm details with the official provider or your institution.
               </Text>
             </View>
-            <Text style={styles.footer}>EduPath SA · Here for your next step 🇿🇦</Text>
+            <Text style={styles.footer}>Let's Learn SA · Here for your next step 🇿🇦</Text>
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
@@ -427,10 +441,10 @@ const styles = StyleSheet.create({
   officialLinkText: { color: palette.green, fontSize: 10, fontWeight: '600' },
   planner: { backgroundColor: '#F4F6F0', borderRadius: 14, padding: 13, marginTop: 9 },
   plannerTitle: { color: palette.ink, fontSize: 12, fontWeight: '600' },
-  plannerCopy: { color: palette.muted, fontSize: 9, lineHeight: 14, marginTop: 4 },
+  plannerCopy: { color: palette.muted, fontSize: 15, lineHeight: 14, marginTop: 4 },
   inputRow: { flexDirection: 'row', gap: 9, marginTop: 12 },
   inputGroup: { flex: 1 },
-  inputLabel: { color: '#5F6C63', fontSize: 8, fontWeight: '500', marginBottom: 5 },
+  inputLabel: { color: '#5F6C63', fontSize: 12, fontWeight: '500', marginBottom: 5 },
   currencyInput: { height: 39, borderRadius: 10, backgroundColor: palette.white, borderWidth: 1, borderColor: palette.line, flexDirection: 'row', alignItems: 'center', paddingHorizontal: 9 },
   currency: { color: palette.green, fontSize: 11, fontWeight: '600', marginRight: 5 },
   input: { color: palette.ink, fontSize: 11, flex: 1, paddingVertical: 5 },
@@ -438,28 +452,28 @@ const styles = StyleSheet.create({
   balanceAlert: { backgroundColor: '#F9E6D9' },
   balanceLabel: { color: palette.ink, fontSize: 9, fontWeight: '500' },
   balanceAmount: { color: palette.green, fontSize: 13, fontWeight: '600' },
-  disclaimer: { color: '#89938B', fontSize: 8, lineHeight: 12, marginTop: 8 },
+  disclaimer: { color: '#89938B', fontSize: 9, lineHeight: 12, marginTop: 8 },
   wellnessBox: { backgroundColor: '#F4F0FA', borderRadius: 15, padding: 14, marginBottom: 13 },
   moodRow: { flexDirection: 'row', gap: 8, marginTop: 12 },
   moodButton: { flex: 1, alignItems: 'center', justifyContent: 'center', gap: 4, minHeight: 56, backgroundColor: palette.white, borderColor: '#E6E0EF', borderWidth: 1, borderRadius: 12 },
   moodSelected: { borderColor: palette.green, backgroundColor: palette.greenLight },
   moodIcon: { fontSize: 17 },
   moodLabel: { color: palette.ink, fontSize: 9, fontWeight: '500' },
-  moodMessage: { color: '#56665D', fontSize: 10, lineHeight: 16, marginTop: 11 },
+  moodMessage: { color: '#56665D', fontSize: 15, lineHeight: 16, marginTop: 11 },
   studyNudge: { backgroundColor: '#EAF2F7', padding: 13, borderRadius: 14, flexDirection: 'row', alignItems: 'center', gap: 11, marginBottom: 14 },
   studyCheck: { height: 20, width: 20, borderRadius: 7, borderWidth: 1.5, borderColor: '#B9C7BD', alignItems: 'center', justifyContent: 'center' },
   studyCheckDone: { backgroundColor: palette.green, borderColor: palette.green },
   studyCheckText: { color: palette.white, fontSize: 12, fontWeight: '600' },
   studyNudgeCopy: { flex: 1 },
-  studyNudgeTitle: { color: palette.ink, fontSize: 10, fontWeight: '500' },
-  studyNudgeSubtitle: { color: palette.muted, fontSize: 8, marginTop: 3 },
+  studyNudgeTitle: { color: palette.ink, fontSize: 12, fontWeight: '500' },
+  studyNudgeSubtitle: { color: palette.muted, fontSize: 10, marginTop: 3 },
   emptyState: { backgroundColor: palette.white, borderRadius: 16, padding: 24, alignItems: 'center', marginBottom: 13 },
   emptyIcon: { color: palette.green, fontSize: 28 },
   emptyTitle: { color: palette.ink, fontSize: 13, fontWeight: '600', marginTop: 8 },
   emptyText: { color: palette.muted, fontSize: 10, textAlign: 'center', marginTop: 5 },
   trustNote: { flexDirection: 'row', alignItems: 'flex-start', gap: 9, backgroundColor: '#F1EFE6', borderRadius: 13, padding: 12, marginTop: 11 },
   trustIcon: { color: '#98762F', fontSize: 15, fontWeight: '700' },
-  trustText: { color: '#786D52', fontSize: 9, lineHeight: 14, flex: 1 },
+  trustText: { color: '#786D52', fontSize: 15, lineHeight: 14, flex: 1 },
   footer: { color: '#97A097', fontSize: 9, textAlign: 'center', paddingTop: 18 },
   pressed: { opacity: 0.76 },
 });

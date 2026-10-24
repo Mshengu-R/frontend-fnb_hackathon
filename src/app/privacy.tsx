@@ -8,23 +8,25 @@ export default function PrivacyScreen() {
       <ScrollView contentContainerStyle={styles.content}>
         <Link href="/" style={styles.back}>‹  Back to Lets Learn</Link>
         <Text style={styles.eyebrow}>PRIVACY & DATA</Text>
-        <Text style={styles.title}>Your information matters</Text>
+        <Text style={styles.title}>Your privacy is our priority</Text>
         <View style={styles.notice}>
-          <Text style={styles.noticeTitle}>Draft policy — needs review before publication</Text>
-          <Text style={styles.body}>This is a starter summary for the prototype, not legal advice or a final POPIA policy. Add your organisation&apos;s legal name, privacy contact, retention schedule and approved policy before launch.</Text>
+          <Text style={styles.noticeTitle}>South Africa has enforced Protection Of Personal Information (POPI act)[2013]</Text>
+          <Text style={styles.body}>When you use our services, you’re trusting us with your information.
+            We do not share your content with any third parties.
+             We understand that this is a big responsibility and we work hard to protect your information and put you in control. We are very considerate for your information and with that being said we would like to let you know that we handle your information with care.</Text>
         </View>
-        <Text style={styles.heading}>Information used</Text>
-        <Text style={styles.body}>The current account features use your name, email address and gender to create and manage your profile. Your password is sent to the backend for authentication and should only be stored there as a secure hash. A JWT sign-in token is kept on your device to authenticate requests.</Text>
+        <Text style={styles.heading}>Information about you that we collect</Text>
+        <Text style={styles.body}>We have your email and names so we may offer personal assistance and also trace fraud.</Text>
         <Text style={styles.heading}>Why it is used</Text>
         <Text style={styles.body}>Account information supports sign-in, profile changes and account deletion. Study support guides, budget estimates and wellbeing check-ins are designed to run on your device unless you choose to send information to a connected service.</Text>
         <Text style={styles.heading}>Your choices</Text>
-        <Text style={styles.body}>You can review and update your profile, sign out, or request account deletion from Profile. Deletion removes the account through the configured backend; confirm any retention obligations and backups with the service operator.</Text>
+        <Text style={styles.body}>You can review and update your profile, sign out, or request account deletion from Profile. Keep in mind that other features are yet to be added</Text>
         <Text style={styles.heading}>Chat assistant</Text>
-        <Text style={styles.body}>The chatbot is not connected yet. Before enabling it, publish what messages are sent, which provider processes them, how long they are retained, and how to request deletion.</Text>
+        <Text style={styles.body}>When you send a chat message, it is sent to our backend AI service to generate a reply. Do not share sensitive personal information. AI responses can be inaccurate, so verify important study, funding and application details with the relevant official provider. The service operator should publish the AI provider, retention period and process for requesting deletion before launch.</Text>
         <Text style={styles.heading}>Contact and retention details</Text>
-        <Text style={styles.body}>[Add the responsible organisation, privacy officer email, data retention period, and complaint/contact process before release.]</Text>
+        <Text style={styles.body}>[If you need further, privacy officer email, data retention period, and complaint/contact process before release.]</Text>
         <View style={styles.footer}>
-          <Text style={styles.footerText}>Please replace this draft with a reviewed privacy notice before collecting real student information.</Text>
+          <Text style={styles.footerText}>If you do not agree with these we advice you not to use our website.</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
