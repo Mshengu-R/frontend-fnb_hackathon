@@ -10,23 +10,58 @@ export default function PrivacyScreen() {
         <Text style={styles.eyebrow}>PRIVACY & DATA</Text>
         <Text style={styles.title}>Your privacy is our priority</Text>
         <View style={styles.notice}>
-          <Text style={styles.noticeTitle}>South Africa has enforced Protection Of Personal Information (POPI act)[2013]</Text>
-          <Text style={styles.body}>When you use our services, you’re trusting us with your information.
-            We do not share your content with any third parties.
-             We understand that this is a big responsibility and we work hard to protect your information and put you in control. We are very considerate for your information and with that being said we would like to let you know that we handle your information with care.</Text>
+          <Text style={styles.noticeTitle}>Your privacy is important to us</Text>
+          <Text style={styles.body}>We value your privacy and are committed to protecting your personal information in accordance with the Protection of Personal Information Act (POPIA), 2013 of South Africa.
+
+By using our website, you trust us with your information, and we take that responsibility seriously.</Text>
         </View>
         <Text style={styles.heading}>Information about you that we collect</Text>
-        <Text style={styles.body}>We have your email and names so we may offer personal assistance and also trace fraud.</Text>
-        <Text style={styles.heading}>Why it is used</Text>
-        <Text style={styles.body}>Account information supports sign-in, profile changes and account deletion. Study support guides, budget estimates and wellbeing check-ins are designed to run on your device unless you choose to send information to a connected service.</Text>
-        <Text style={styles.heading}>Your choices</Text>
-        <Text style={styles.body}>You can review and update your profile, sign out, or request account deletion from Profile. Keep in mind that other features are yet to be added</Text>
+        <Text style={styles.body}>We only collect the following information when you create an account:
+Username
+Email address
+Password (stored securely and encrypted)</Text>
+
+
+        <Text style={styles.heading}>How We Use Your Information</Text>
+        <Text style={styles.body}>Your information is used solely to:
+Create and manage your account
+Authenticate and secure your login
+Communicate important account-related information
+Detect and prevent fraud, abuse, or unauthorized access
+Improve the security and functionality of our services</Text>
+
+        <Text style={styles.heading}>Information Sharing</Text>
+        <Text style={styles.body}>We do not sell, rent, or share your personal information with third parties for marketing purposes.
+We may disclose information only when:
+Required by law
+Necessary to protect our rights, users, or the security of our services</Text>
+
+        <Text style={styles.heading}>Data Security</Text>
+        <Text style={styles.body}>We implement reasonable technical and organizational measures to protect your information against:
+Unauthorized access
+Loss
+Misuse
+Disclosure
+Alteration
+Although we strive to protect your data, no internet transmission or storage method is completely secure.</Text>
+
         <Text style={styles.heading}>Chat assistant</Text>
         <Text style={styles.body}>When you send a chat message, it is sent to our backend AI service to generate a reply. Do not share sensitive personal information. AI responses can be inaccurate, so verify important study, funding and application details with the relevant official provider. The service operator should publish the AI provider, retention period and process for requesting deletion before launch.</Text>
         <Text style={styles.heading}>Contact and retention details</Text>
-        <Text style={styles.body}>[If you need further, privacy officer email, data retention period, and complaint/contact process before release.]</Text>
+
+      <Text style={styles.heading}>Account Deletion</Text>
+      <Text style={styles.body}>You may request the deletion of your account at any time. Once processed, your personal information will be removed from our systems, unless we are required to retain it by law.</Text>
+
+      <Text style={styles.heading}>Passwords</Text>
+      <Text style={styles.body}>We store your password securely using industry-standard encryption techniques. We cannot retrieve it for you. If you forget your password, you can reset it using the "Forgot Password".</Text>
+
+      <Text style={styles.heading}>Changes to This Policy</Text>
+      <Text style={styles.body}>We may update this Privacy Policy from time to time. Any changes will be posted on this page, and continued use of our website constitutes acceptance of the updated policy.</Text>
+
+        <Text style={styles.heading}>Contact Information</Text>
+        <Text style={styles.body}>[If you need further information, please contact our privacy officer at risima@letsLearn.com.]</Text>
         <View style={styles.footer}>
-          <Text style={styles.footerText}>If you do not agree with these we advice you not to use our website.</Text>
+          <Text style={styles.footerText}>If you do not agree with these terms, we advise you not to use our website.</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
