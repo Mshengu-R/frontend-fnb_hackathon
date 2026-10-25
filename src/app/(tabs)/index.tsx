@@ -22,7 +22,8 @@ const palette = {
 const milestones = [
   { id: 'documents', title: 'Gather your documents', note: 'ID, results & proof of income' },
   { id: 'funding', title: 'Explore funding options', note: 'NSFAS, bursaries & scholarships' },
-  { id: 'apply', title: 'Apply to your institution', note: 'Check each application deadline' },
+  { id: 'apply', title: 'Apply to your institutions',
+     note: 'Check each application deadline, know exaclty which degree are you intending to study. Avoid applying for the sake of getting into university. Do research about the institution and the course you are interested in. Check institution\'s prospectus. ' },
 ];
 
 const quickLinks = [

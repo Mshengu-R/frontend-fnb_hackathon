@@ -43,14 +43,20 @@ export default function AboutScreen() {
           <Text style={styles.title}>Your next step deserves support.</Text>
           <Text style={styles.intro}>
             Lets Learn is a study-journey companion created to help students across South Africa
-            find their next step with more confidence.
+            find their next step with more confidence. There are many students who strugle to know how universities or colleges work, how to apply, and how to fund their studies.
+             Lets Learn is here to help you navigate the next step in your study journey. Knowing what you want to do is good but also knowing your prefered Universities and how to apply is also important. 
+             We also encourage students not to pay people for applications but visit their inteded institutions' website to know and check the process of applications. 
+             Students should do research on which insitutions offer the courses they want to study and also check the requirements for those courses. 
+             They should be aware about the deadlines for applications and also check if they are eligible to apply for those courses. Also the required documents.
+             Studying is not free, so they should also consider the cost of studying and also check if they are eligible for bursaries or scholarships. 
+             Maintaining studies from poor environments is not that simple so we guide them throughout their journey and also how they maintain their mental health, finances and wellbeing. 
           </Text>
         </View>
 
         <View style={styles.missionCard}>
           <Text style={styles.missionEyebrow}>WHY WE’RE HERE</Text>
           <Text style={styles.missionTitle}>Make the path ahead feel a little clearer.</Text>
-          <Text style={styles.body}>
+          <Text style={styles.whyWereHere}>
             Planning what comes after school or choosing how to keep studying can feel like a lot.
             We bring together helpful starting points for study planning, funding, applications,
             money and wellbeing, so you can focus on one step at a time.
@@ -108,6 +114,7 @@ const styles = StyleSheet.create({
   missionEyebrow: { color: '#C5DCCB', fontSize: 9, fontWeight: '700', letterSpacing: 1.4 },
   missionTitle: { color: '#FFFFFF', fontSize: 21, lineHeight: 27, fontWeight: '700', marginTop: 10 },
   body: { color: '#65746B', fontSize: 13, lineHeight: 21, marginTop: 7 },
+  whyWereHere: { color: '#d0ece7', fontSize: 13, lineHeight: 21, marginTop: 7 },
   valuesSection: { marginTop: 29 },
   sectionTitle: { color: '#173B35', fontSize: 25, fontWeight: '700', marginTop: 7 },
   sectionIntro: { color: '#75817A', fontSize: 13, lineHeight: 20, marginTop: 5, marginBottom: 13 },
