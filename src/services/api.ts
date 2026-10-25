@@ -104,7 +104,7 @@ export const api = {
   },
 
   async getUser(id: number | string, token: string) {
-    return request<UserProfile>(`/api/v1/users/${encodeURIComponent(id)}`, {}, token);
+    return request<UserProfile>(`/api/v1/users/me}`, {}, token);
   },
 
   async updateUser(
@@ -112,14 +112,14 @@ export const api = {
     token: string,
     details: { name: string; email: string; password?: string },
   ) {
-    return request<UserProfile>(`/api/v1/users/${encodeURIComponent(id)}/update`, {
+    return request<UserProfile>(`/api/v1/users/me`, {
       method: 'PUT',
       body: JSON.stringify(details),
     }, token);
   },
 
   async deleteUser(id: number | string, token: string) {
-    return request<UserProfile>(`/api/v1/users/${encodeURIComponent(id)}/delete`, {
+    return request<UserProfile>(`/api/v1/users/me`, {
       method: 'DELETE',
     }, token);
   },
