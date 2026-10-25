@@ -12,7 +12,7 @@ function AppNavigator() {
 
     const firstSegment = segments[0];
     const isAuthRoute = firstSegment === 'login' || firstSegment === 'signup';
-    const isPublicRoute = isAuthRoute || firstSegment === 'privacy';
+    const isPublicRoute = isAuthRoute || firstSegment === 'privacy' || firstSegment === 'about';
 
     if (state.status === 'signedIn' && isAuthRoute) {
       router.replace('/');
@@ -35,6 +35,7 @@ function AppNavigator() {
       <Stack.Screen name="login" />
       <Stack.Screen name="signup" />
       <Stack.Screen name="privacy" />
+      <Stack.Screen name="about" />
       <Stack.Screen name="chat" />
     </Stack>
   );

@@ -77,6 +77,7 @@ export default function SignupScreen() {
             </Pressable>
           </View>
           <Text style={styles.footer}>By continuing, you acknowledge our <Link href="/privacy" style={styles.link}>privacy & data policy</Link>.</Text>
+          <Link href="/about" style={styles.aboutLink}>About us</Link>
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -104,4 +105,5 @@ const styles = StyleSheet.create({
   error: { color: '#A33D34', fontSize: 12, lineHeight: 17, marginTop: 12 },
   footer: { color: '#75817A', fontSize: 12, lineHeight: 19, textAlign: 'center', marginTop: 20 },
   link: { color: '#1F6758', fontWeight: '600' },
+  aboutLink: { color: '#75817A', fontSize: 13, textAlign: 'center', marginTop: 16 },
 });

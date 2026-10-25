@@ -94,6 +94,7 @@ export default function LoginScreen() {
             </Pressable>
           </View>
           <Text style={styles.footer}>New to Lets Learn? <Link href="/signup" style={styles.link}>Create an account</Link></Text>
+          <Link href="/about" style={styles.policy}>About us</Link>
           <Link href="/privacy" style={styles.policy}>Privacy & data policy</Link>
         </ScrollView>
       </KeyboardAvoidingView>

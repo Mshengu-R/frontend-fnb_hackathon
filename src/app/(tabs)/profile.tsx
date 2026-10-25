@@ -132,6 +132,9 @@ export default function ProfileScreen() {
               <Text style={styles.primaryText}>{saving ? 'Saving…' : 'Save changes'}</Text>
             </Pressable>
           </View>
+          <Pressable style={styles.linkRow} onPress={() => router.push('/about')}>
+            <Text style={styles.linkText}>About Lets Learn</Text><Text style={styles.arrow}>›</Text>
+          </Pressable>
           <Pressable style={styles.linkRow} onPress={() => router.push('/privacy')}>
             <Text style={styles.linkText}>Privacy & data policy</Text><Text style={styles.arrow}>›</Text>
           </Pressable>
