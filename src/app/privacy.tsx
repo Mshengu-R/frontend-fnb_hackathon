@@ -47,7 +47,14 @@ Although we strive to protect your data, no internet transmission or storage met
 
         <Text style={styles.heading}>Chat assistant</Text>
         <Text style={styles.body}>When you send a chat message, it is sent to our backend AI service to generate a reply. Do not share sensitive personal information. AI responses can be inaccurate, so verify important study, funding and application details with the relevant official provider. The service operator should publish the AI provider, retention period and process for requesting deletion before launch.</Text>
-        <Text style={styles.heading}>Contact and retention details</Text>
+        
+        <Text style={styles.heading}>Your Rights</Text>
+        <Text style={styles.body}>You have the right to:
+Access your personal information
+Update your email address or username
+Request deletion of your account
+Request correction of inaccurate information
+To exercise these rights, please contact us using the details provided below.</Text>
 
       <Text style={styles.heading}>Account Deletion</Text>
       <Text style={styles.body}>You may request the deletion of your account at any time. Once processed, your personal information will be removed from our systems, unless we are required to retain it by law.</Text>
