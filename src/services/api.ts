@@ -2,7 +2,7 @@ import { Platform } from 'react-native';
 
 import type { UserProfile } from '@/auth/types';
 
-const API_BASE_URL = (process.env.EXPO_PUBLIC_API_URL || 'http://localhost:5500').replace(/\/+$/, '');
+const API_BASE_URL = (process.env.EXPO_PUBLIC_API_URL || 'http://localhost:5000').replace(/\/+$/, '');
 
 type ApiResponse<T> = {
   success?: boolean;

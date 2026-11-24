@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Name – Java Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F6FA;--surface:#FFFFFF;--ink:#14213D;--muted:#52607A;--line:#D5DDEA;
+  --accent:#2F5BEA;--amber:#B86E00;--code-bg:#14213D;--code-ink:#E6ECF8;
+  --c-kw:#8FB0FF;--c-ty:#FFC96B;--c-st:#9BE3B5;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1626;--surface:#16213A;--ink:#EAF0FB;--muted:#9FB0CC;--line:#26355A;
+    --accent:#7FA2FF;--amber:#FFC96B;--code-bg:#0A101D;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1626;--surface:#16213A;--ink:#EAF0FB;--muted:#9FB0CC;--line:#26355A;
+  --accent:#7FA2FF;--amber:#FFC96B;--code-bg:#0A101D;color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "IBM Plex Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.1;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+header.top{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:20px;text-decoration:none}
+nav{display:flex;gap:20px;align-items:center;font-size:15px}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.theme{background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:6px 12px;font:inherit;font-size:14px;cursor:pointer}
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;padding:56px 0 80px}
+.hero h1{font-size:clamp(40px,6vw,68px);font-weight:800;letter-spacing:-0.02em}
+.hero p.lead{color:var(--muted);font-size:19px;max-width:46ch;margin:20px 0 28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:500;border:1px solid var(--ink)}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.code{background:var(--code-bg);color:var(--code-ink);border-radius:12px;padding:22px 24px;font:400 14.5px/1.75 "JetBrains Mono",ui-monospace,monospace;overflow-x:auto;white-space:pre}
+.code .k{color:var(--c-kw)}.code .t{color:var(--c-ty)}.code .s{color:var(--c-st)}
+section{padding:64px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(28px,4vw,40px);font-weight:700;margin-bottom:32px}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px}
+.skills h3{font-size:19px;margin-bottom:10px}
+.skills ul{list-style:none;margin:0;padding:0;color:var(--muted)}
+.skills li{padding:3px 0}
+.jobs{display:grid;gap:0;border-left:2px solid var(--line);margin-left:6px}
+.job{padding:0 0 36px 28px;position:relative}
+.job::before{content:"";position:absolute;left:-7px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.job h3{font-size:22px}
+.job .when{color:var(--muted);font-size:15px;margin:2px 0 8px}
+.job ul{margin:8px 0 0;padding-left:20px;max-width:68ch}
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px}
+.proj h3{font-size:22px;margin-bottom:8px}
+.proj p{margin:0 0 14px;color:var(--muted)}
+.tags{display:flex;gap:8px;flex-wrap:wrap;font:400 13px "JetBrains Mono",monospace}
+.tags span{border:1px solid var(--line);border-radius:6px;padding:2px 8px}
+.proj a{color:var(--accent);font-weight:500}
+.contact p{max-width:52ch;color:var(--muted);margin:0 0 20px}
+footer{padding:32px 0;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding:32px 0 56px;gap:32px}nav a.hide{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script>
+// ---------- Edit this object to make the portfolio yours ----------
+const DATA = {
+  name: "Risima Chabalala",
+  role: "Java software engineer",
+  headline: "Backend Developer focused on building secure, scalable systems through personal projects and current software development study.",
+  lead: "1 year designing Java services for payments, logistics and data platforms. I care about clear secure APIs, boring deployments and writing code the next engineer can read.",
+  email: "risimachabalala9@gmail.com",
+  github: "https://github.com/Mshengu-R",
+  linkedin: "https://linkedin.com/in/risima-chabalala-0923B6389",
+  location: "Malamulele, South Africa",
+  skills: [
+    { title: "Languages", items: ["Java 25 (Proficient)", "JavaScript (Proficient)", "C++", "SQL", "TypeScript"] },
+    { title: "Frameworks", items: ["Spring Boot", "Spring Cloud", "Hibernate / JPA", "Express", "Quarkus"] },
+    { title: "Data and messaging", items: ["PostgreSQL", "Redis", "Kafka", "MongoDB"] },
+    { title: "Delivery and tests", items: ["Docker", "Kubernetes", "AWS", "GitHub Actions", "JUnit 5 / Testcontainers"] }
+  ],
+  jobs: [
+    { role: "Software Engineer", org: "Nkarhi Safaris", when: "2026 – Present", points: [
+      "Building and maintaining e-comerce web application for Nkarhi Safaris.",
+      // "Designing an event-driven payments pipeline on Kafka handling 2M transactions a day.",
+      
+    ]},
+    { role: "Software Engineer", org: "Mbhombi-Financial-Services", when: "2026 – present", points: [
+      "Building a bank system which is suppost to handle, transactions for personal accounts and community/group accounts e.g Stokvels.",
+      "Building microservices for backend development in java, with Fraud detection, Account, Community-acccount, payment, notification, and transaction services.",
+      "Used kafka for asychronis development.",
+      "Deployed the backend services to AWS (Account suspended).",
+      "Planning on using Azure.",
+      "Used nginx for reverse proxy and load balancing.",
+      "Used Postgres database for persisting data.",
+      "Used Redis for caching and session management.",
+      "Used Spring Boot for building the backend services.",
+      "Used React for building the frontend application.",
+      "Used JUnit 5 and Testcontainers for testing the backend services."
+    ]},
+    { role: "Software Engineer", org: "FNB hackathon", when: "2026 – present", points: [
+      "Designed a student aid application which focus on helping students in applications, mental health and advices which helps them when they are or not yet pursuing their degrees.",
+      "Used express and react-native for the backend and frontend respectively.",
+      "Used Postgres database.",
+      "Used vercel for deployment",
+      "Manual code for rate limiting"
+    ]}
+    ,
+    { role: "Junior Developer", org: "Personal project", when: "2025 – 2026", points: [
+      "Build a subscription management system for managing subscriptions.",
+      "Used express and react for the backend and frontend respectively.",
+      "Used MongoDb and later migrated to Postgres database."
+    ]}
+  ],
+  projects: [
+    { name: "Mbhombi-Financial-Services", text: "A digital bank which deals with community/group, and personal accounts.", tags: ["Java 25", "Spring Boot",
+                                                                                                                                       "Azure", "AWS", "Nginx", "Kafka",
+                                                                                                                                       "PostgreSQL", "React",
+                                                                                                                                      "Docker", "Redis"], link: "https://github.com/yourname/ledger-core" },
+    { name: "Subscription Management", text: "Subscription tracker dashboard which shows user all active and allow them to delete, update, and create new ones subscriptions.", tags: ["JavaScript", "Express", "React"], link: "https://github.com/yourname/queue-watch" },
+    { name: "Let's learn", text: "A student asisstant which helps students in planning and maintaining their studies.", tags: ["JavaScript", "React", "Prisma Postgres", "Express"], link: "https://frontend-fnbhackathon.vercel.app/" }
+  ]
+};
+// -------------------------------------------------------------------
+
+const h = React.createElement;
+const { useState, useEffect } = React;
+
+function span(cls, text) { return h("span", { className: cls }, text); }
+
+function ClassCard({ d }) {
+  return h("div", { className: "code", role: "img", "aria-label": d.name + " as a Java class" },
+    span("k", "public class "), span("t", "Engineer"), " {\n",
+    "  ", span("k", "String "), "name     = ", span("s", '"' + d.name + '"'), ";\n",
+    "  ", span("k", "String "), "focus    = ", span("s", '"Backend development"'), ";\n",
+    "  ", span("k", "int    "), "years    = ", span("s", "1"), ";\n",
+    "  ", span("k", "String "), "location = ", span("s", '"' + d.location.split(",")[0] + '"'), ";\n\n",
+    "  ", span("k", "boolean "), "available() {\n",
+    "    ", span("k", "return "), span("k", "true"), ";\n",
+    "  }\n}"
+  );
+}
+
+function Header() {
+  const [theme, setTheme] = useState("auto");
+  useEffect(() => {
+    const r = document.documentElement;
+    if (theme === "auto") r.removeAttribute("data-theme"); else r.setAttribute("data-theme", theme);
+  }, [theme]);
+  const next = theme === "dark" ? "light" : "dark";
+  return h("header", { className: "top" },
+    h("a", { className: "brand", href: "#top" }, DATA.name),
+    h("nav", null,
+      h("a", { className: "hide", href: "#skills" }, "Skills"),
+      h("a", { className: "hide", href: "#experience" }, "Experience"),
+      h("a", { href: "#projects" }, "Projects"),
+      h("a", { href: "#contact" }, "Contact"),
+      h("button", { className: "theme", onClick: () => setTheme(next), "aria-label": "Switch to " + next + " theme" }, next === "dark" ? "Dark" : "Light")
+    )
+  );
+}
+
+function Hero() {
+  return h("div", { className: "hero", id: "top" },
+    h("div", null,
+      h("h1", null, DATA.headline),
+      h("p", { className: "lead" }, DATA.lead),
+      h("div", { className: "btns" },
+        h("a", { className: "btn primary", href: "#projects" }, "See my work"),
+        h("a", { className: "btn", href: "mailto:" + DATA.email }, "Email me")
+      )
+    ),
+    h(ClassCard, { d: DATA })
+  );
+}
+
+function Skills() {
+  return h("section", { id: "skills" },
+    h("h2", null, "Skills"),
+    h("div", { className: "skills" }, DATA.skills.map(g =>
+      h("div", { key: g.title }, h("h3", null, g.title),
+        h("ul", null, g.items.map(i => h("li", { key: i }, i))))
+    ))
+  );
+}
+
+function Experience() {
+  return h("section", { id: "experience" },
+    h("h2", null, "Experience"),
+    h("div", { className: "jobs" }, DATA.jobs.map(j =>
+      h("div", { className: "job", key: j.role + j.when },
+        h("h3", null, j.role + ", " + j.org),
+        h("div", { className: "when" }, j.when),
+        h("ul", null, j.points.map(p => h("li", { key: p }, p)))
+      )
+    ))
+  );
+}
+
+function Projects() {
+  return h("section", { id: "projects" },
+    h("h2", null, "Projects"),
+    h("div", { className: "projects" }, DATA.projects.map(p =>
+      h("article", { className: "proj", key: p.name },
+        h("h3", null, p.name),
+        h("p", null, p.text),
+        h("div", { className: "tags", style: { marginBottom: 14 } }, p.tags.map(t => h("span", { key: t }, t))),
+        h("a", { href: p.link, target: "_blank", rel: "noopener" }, "View on GitHub")
+      )
+    ))
+  );
+}
+
+function Contact() {
+  return h("section", { id: "contact", className: "contact" },
+    h("h2", null, "Let’s work together"),
+    h("p", null, "I’m open to senior backend roles and contract work. Email is the fastest way to reach me."),
+    h("div", { className: "btns" },
+      h("a", { className: "btn primary", href: "mailto:" + DATA.email }, DATA.email),
+      h("a", { className: "btn", href: DATA.github, target: "_blank", rel: "noopener" }, "GitHub"),
+      h("a", { className: "btn", href: DATA.linkedin, target: "_blank", rel: "noopener" }, "LinkedIn")
+    )
+  );
+}
+
+function App() {
+  return h("div", { className: "wrap" },
+    h(Header), h("main", null, h(Hero), h(Skills), h(Experience), h(Projects), h(Contact)),
+    h("footer", null, "© " + new Date().getFullYear() + " " + DATA.name + ". " + DATA.location + ".")
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(h(App));
+</script>
+</body>
+</html>

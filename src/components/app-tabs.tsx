@@ -28,6 +28,14 @@ export default function AppTabs() {
         />
       </NativeTabs.Trigger>
 
+      <NativeTabs.Trigger name="developer">
+        <NativeTabs.Trigger.Label>developer</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon
+          md={{ default: 'code', selected: 'code' }}
+          sf={{ default: 'chevron.left.forwardslash.chevron.right', selected: 'chevron.left.forwardslash.chevron.right' }}
+        />
+      </NativeTabs.Trigger>
+
       <NativeTabs.Trigger name="explore">
         <NativeTabs.Trigger.Label>Support</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon
