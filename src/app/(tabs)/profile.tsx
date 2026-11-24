@@ -138,6 +138,9 @@ export default function ProfileScreen() {
           <Pressable style={styles.linkRow} onPress={() => router.push('/privacy')}>
             <Text style={styles.linkText}>Privacy & data policy</Text><Text style={styles.arrow}>›</Text>
           </Pressable>
+          <Pressable style={styles.linkRow} onPress={() => router.push('./developer')}>
+            <Text style={styles.linkText}>developer</Text><Text style={styles.arrow}>›</Text>
+          </Pressable>
           <Pressable style={styles.linkRow} onPress={leave}>
             <Text style={styles.linkText}>Sign out</Text><Text style={styles.arrow}>›</Text>
           </Pressable>
